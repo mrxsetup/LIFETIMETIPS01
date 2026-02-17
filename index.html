@@ -50,11 +50,6 @@ font-size:1.8rem;
 color:#fff;
 text-shadow:0 0 6px #00faff,0 0 12px #00faff
 }
-.sub-text{
-font-weight:800;
-color:#ffb300;
-text-shadow:0 0 8px rgba(255,179,0,.8)
-}
 .neon-btn{
 background:#00faff;
 color:#ff003c;
@@ -62,15 +57,6 @@ padding:14px 22px;
 border-radius:14px;
 font-weight:900;
 box-shadow:0 0 15px #00faff,0 0 35px #00faff;
-transition:0.3s;
-animation:pulse 1.8s infinite
-}
-.neon-btn:hover{
-transform:scale(1.05);
-}
-@keyframes pulse{
-0%,100%{box-shadow:0 0 15px #00faff}
-50%{box-shadow:0 0 45px #00faff}
 }
 .overlay{
 position:absolute;
@@ -83,7 +69,7 @@ background:rgba(0,0,0,.55)
 <body class="bg-black text-white">
 
 <div class="relative min-h-screen flex items-center justify-center bg-cover bg-center"
-style="background-image:url('https://github.com/mrxsetup/DK_BHAI_ANALYST/blob/main/DKBHAI%20LOGO.jpg?raw=true');">
+style="background-image:url('https://github.com/mrxsetup/LIFETIMETIPS01/blob/main/lifetimefreetips.jpg?raw=true');">
 
 <div class="overlay"></div>
 
@@ -93,49 +79,42 @@ style="background-image:url('https://github.com/mrxsetup/DK_BHAI_ANALYST/blob/ma
 <div class="neon-text">Life Time Tips ™</div>
 </div>
 
-<div class="mt-3 sub-text">
-Premium Cricket & Trading Tips
-</div>
-
 <p class="mt-6 text-2xl font-extrabold">
-Join Now <span id="countdown" class="text-yellow-400 text-4xl">30</span> Seconds
+Redirecting in <span id="countdown" class="text-yellow-400 text-4xl">2</span> Seconds...
 </p>
 
 <div class="mt-8">
-<a href="https://t.me/+UlNjgeW_uI01YzY1" target="_blank">
-<button class="neon-btn" onclick="trackJoin()">
+<a id="joinLink" href="https://t.me/+UlNjgeW_uI01YzY1">
+<button class="neon-btn">
 JOIN TELEGRAM CHANNEL
 </button>
 </a>
-</div>
-
-<p class="mt-6 text-sm font-extrabold uppercase">
-💸 Life Time Tips ™ <br> Daily Premium Winning Updates 🚀
-</p>
-
-<div class="mt-10 text-[10px] tracking-widest text-cyan-400">
-ADS_SETUP BY @MRXSETUP
 </div>
 
 </div>
 </div>
 
 <script>
-let time = 30;
+let time = 2;
 let el = document.getElementById("countdown");
+let link = "https://t.me/+UlNjgeW_uI01YzY1";
 
 let timer = setInterval(()=>{
 el.textContent = time;
 time--;
 if(time < 0){
 clearInterval(timer);
-el.textContent = "0";
-}
-},1000);
 
-function trackJoin(){
+// Track Lead Event
+if(typeof fbq !== 'undefined'){
 fbq('track','Lead');
 }
+
+// Automatic Redirect
+window.location.href = link;
+
+}
+},1000);
 </script>
 
 </body>
